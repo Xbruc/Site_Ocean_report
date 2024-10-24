@@ -364,7 +364,7 @@ nas bordas dos cais, que podem impactar a sedimentação, a erosão das margens 
     col1, col2 = st.columns(2)
     # Caminhos dos vídeos
     video_1 = ("https://youtu.be/3zo3LGst4IU")  # Substitua pelo caminho do seu primeiro vídeo
-    video_2 = ("https://drive.google.com/uc?export=download&id=1-msRHuokRz-ugrU6KCaLN8DaMbIQcZwF")  # Substitua pelo caminho do seu segundo vídeo
+    video_2 = ("https://youtu.be/WWOOlWrSUGY")  # Substitua pelo caminho do seu segundo vídeo
     # Carregar o primeiro vídeo na primeira coluna
     with col1:
         st.caption("### Velocidade de Correntes durante o mês de Outubro de 2016 - Menor resolução")
