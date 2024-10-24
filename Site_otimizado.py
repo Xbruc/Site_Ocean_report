@@ -363,8 +363,8 @@ nas bordas dos cais, que podem impactar a sedimentação, a erosão das margens 
     st.markdown(texto2, unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     # Caminhos dos vídeos
-    video_1 = ("https://drive.google.com/file/d/1rexsFkG2ec6JM6ECa80j2Gr-X28adzNl/view?usp=drive_link")  # Substitua pelo caminho do seu primeiro vídeo
-    video_2 = ("https://drive.google.com/file/d/1-msRHuokRz-ugrU6KCaLN8DaMbIQcZwF/view?usp=drive_link")  # Substitua pelo caminho do seu segundo vídeo
+    video_1 = ("https://drive.google.com/uc?export=download&id=1rexsFkG2ec6JM6ECa80j2Gr")  # Substitua pelo caminho do seu primeiro vídeo
+    video_2 = ("https://drive.google.com/uc?export=download&id=1-msRHuokRz-ugrU6KCaLN8DaMbIQcZwF")  # Substitua pelo caminho do seu segundo vídeo
     # Carregar o primeiro vídeo na primeira coluna
     with col1:
         st.caption("### Velocidade de Correntes durante o mês de Outubro de 2016 - Menor resolução")
@@ -385,6 +385,6 @@ No caso de Guarapira, isso afeta tanto a circulação de água quanto a redistri
 """
 # Exibir o texto justificado no Streamlit
     st.markdown(texto3, unsafe_allow_html=True)
-    video_3 = ("https://drive.google.com/file/d/1xDo-e_djCv8jErxMtw3ufWNPKMQjP4oJ/view?usp=drive_link")  # Substitua pelo caminho do seu primeiro vídeo
+    video_3 = ("https://drive.google.com/uc?export=download&id=1xDo-e_djCv8jErxMtw3ufWNPKMQjP4oJ")  # Substitua pelo caminho do seu primeiro vídeo
     st.caption("### Vórtice anticiclônico formado na preamar em outubro de 2024.")
     st.video(video_3)
