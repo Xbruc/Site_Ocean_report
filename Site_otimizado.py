@@ -363,7 +363,7 @@ nas bordas dos cais, que podem impactar a sedimentação, a erosão das margens 
     st.markdown(texto2, unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     # Caminhos dos vídeos
-    video_1 = ("https://drive.google.com/uc?export=download&id=1rexsFkG2ec6JM6ECa80j2Gr")  # Substitua pelo caminho do seu primeiro vídeo
+    video_1 = ("https://drive.google.com/uc?export=download&id=1rexsFkG2ec6JM6ECa80j2Gr-X28adzNl")  # Substitua pelo caminho do seu primeiro vídeo
     video_2 = ("https://drive.google.com/uc?export=download&id=1-msRHuokRz-ugrU6KCaLN8DaMbIQcZwF")  # Substitua pelo caminho do seu segundo vídeo
     # Carregar o primeiro vídeo na primeira coluna
     with col1:
