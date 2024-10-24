@@ -7,6 +7,7 @@ import utm
 from datetime import datetime
 import calendar
 import base64
+import os 
 
 # Define o caminho do diretório atual
 diretorio_atual = os.path.dirname(__file__)
