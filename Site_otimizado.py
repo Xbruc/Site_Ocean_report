@@ -8,8 +8,10 @@ from datetime import datetime
 import calendar
 import base64
 
+# Define o caminho do diretório atual
+diretorio_atual = os.path.dirname(__file__)
 
-imagem_path = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/bercos.jpg'  # Substitua com o URL ou o caminho da sua imagem
+imagem_path = os.path.join(diretorio_atual, 'bercos.jpg')  # Substitua com o URL ou o caminho da sua imagem
 imagem = st.image(imagem_path, use_column_width=True)
 
 
@@ -23,7 +25,7 @@ imagem_base64 = carregar_imagem_base64(imagem_path)
 aba1, aba2 = st.tabs(["📊 Report", "🔍 Ensino"])
 with aba1:
     ######################## GERA TAMPLATE DO SITE 
-    logo_path = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/logo_porto.png'
+    logo_path = os.path.join(diretorio_atual, 'logo_porto.png')
     st.sidebar.image(logo_path, use_column_width=True)
 
     st.title("OCEAN_REPORT")
@@ -103,7 +105,7 @@ with aba1:
     @st.cache_data
     def carregar_dados():
         # Carregar os dados (substitua pelo caminho dos seus dados reais)
-        df = pd.read_excel('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/corrente_porto_todos_pontos.xlsx')
+        df = pd.read_excel(os.path.join(diretorio_atual, 'corrente_porto_todos_pontos.xlsx'))
         # Converter coluna de data para o formato datetime
         df['Time'] = pd.to_datetime(df['Time'])
         return df
@@ -111,25 +113,25 @@ with aba1:
     @st.cache_data
     def carregar_dados_Bt():
         # Carregar os dados (substitua pelo caminho dos seus dados reais)
-        BT = pd.read_excel('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Batimetria_22_23_r10.xlsx')
+        BT = pd.read_excel(os.path.join(diretorio_atual, 'Batimetria_22_23_r10.xlsx'))
         return BT
 
     @st.cache_data
     def carregar_dados_MR():
         # Carregar os dados (substitua pelo caminho dos seus dados reais)
-        MR = pd.read_excel('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/df_mare_hourly.xlsx')
+        MR = pd.read_excel(os.path.join(diretorio_atual, 'df_mare_hourly.xlsx'))
         return MR
 
     @st.cache_data
     def carregar_dados_GR():
         # Carregar os dados (substitua pelo caminho dos seus dados reais)
-        GR = pd.read_excel('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Granolometria_14_23.xlsx')
+        GR = pd.read_excel(os.path.join(diretorio_atual, 'Granolometria_14_23.xlsx'))
         return GR
 
     @st.cache_data
     def carregar_dados_MT():
         # Carregar os dados (substitua pelo caminho dos seus dados reais)
-        MT = pd.read_excel('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Meteorologia_daily.xlsx')
+        MT = pd.read_excel(os.path.join(diretorio_atual, 'Meteorologia_daily.xlsx'))
         return MT
 
     # Função principal do Streamlit
@@ -344,7 +346,7 @@ O CESM recebe aportes fluviais principalmente da bacia do Mearim, além de contr
 
 # Exibir o texto formatado no Streamlit
     st.write(texto1)
-    imagem_path = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Figura_1.png'  # Substitua com o URL ou o caminho da sua imagem
+    imagem_path = (os.path.join(diretorio_atual, 'Figura_1.png'))  # Substitua com o URL ou o caminho da sua imagem
     imagem = st.image(imagem_path)
 
     texto2 = """
@@ -360,8 +362,8 @@ nas bordas dos cais, que podem impactar a sedimentação, a erosão das margens 
     st.markdown(texto2, unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     # Caminhos dos vídeos
-    video_1 = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Velocidade _Correntes_Ampliado.mp4'  # Substitua pelo caminho do seu primeiro vídeo
-    video_2 = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Velocidade_Correntes_Local.mp4'  # Substitua pelo caminho do seu segundo vídeo
+    video_1 = (os.path.join(diretorio_atual, 'Velocidade _Correntes_Ampliado.mp4'))  # Substitua pelo caminho do seu primeiro vídeo
+    video_2 = (os.path.join(diretorio_atual, 'Velocidade_Correntes_Local.mp4'))  # Substitua pelo caminho do seu segundo vídeo
     # Carregar o primeiro vídeo na primeira coluna
     with col1:
         st.caption("### Velocidade de Correntes durante o mês de Outubro de 2016 - Menor resolução")
@@ -382,6 +384,6 @@ No caso de Guarapira, isso afeta tanto a circulação de água quanto a redistri
 """
 # Exibir o texto justificado no Streamlit
     st.markdown(texto3, unsafe_allow_html=True)
-    video_3 = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Velocidade_Corrente_de_mare_vazao_2024_10_18.mp4'  # Substitua pelo caminho do seu primeiro vídeo
+    video_3 = (os.path.join(diretorio_atual, 'Velocidade_Corrente_de_mare_vazao_2024_10_18.mp4'))  # Substitua pelo caminho do seu primeiro vídeo
     st.caption("### Vórtice anticiclônico formado na preamar em outubro de 2024.")
     st.video(video_3)
