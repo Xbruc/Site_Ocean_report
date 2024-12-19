@@ -122,7 +122,7 @@ def carregar_dados(caminho_relativo, sheet_name=None, data_coluna=None):
         df = pd.read_excel(url, sheet_name=sheet_name, engine="openpyxl")
         
         # Se houver uma coluna de data, converte para datetime
-        if data_coluna and data_coluna in df.columns:
+        if data_coluna and data_coluna in df.Time:
             df[data_coluna] = pd.to_datetime(df[data_coluna])
         
         return df
