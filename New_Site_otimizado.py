@@ -108,14 +108,6 @@ with aba1: ######################  ABA para Report
             title_text = 'Localização das estações oceanográficas', title_x=0.5,
             geo_scope='usa', font_color="black")
 
-    # @st.cache_data
-    def carregar_dados():
-        # Carregar os dados (substitua pelo caminho dos seus dados reais)
-        df = pd.read_excel(os.path.join(diretorio_atual, 'corrente_porto_todos_pontos.xlsx'))
-        # Converter coluna de data para o formato datetime
-        df['Time'] = pd.to_datetime(df['Time'])
-        return df
-
     # Função para carregar os dados com cache para otimização
     @st.cache_data
     def carregar_dados():
