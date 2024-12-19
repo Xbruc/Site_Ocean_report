@@ -146,7 +146,7 @@ dados_sedimento_inorganico = carregar_dados('Parametros_fisico_quimicos.xlsx', s
 
     
     # Função principal do Streamlit
-    def app():
+def app():
         if Dataset == 'Dados Observacionai':
             if regiao == 'Baia de São Marcos':
                 if variavel == 'Velocidade de Correntes':
