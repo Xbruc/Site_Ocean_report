@@ -636,8 +636,8 @@ def app():
                 st.plotly_chart(fig)
 
 # Executa a aplicação
-if __name__ == "__main__":
-    app()
+    if __name__ == "__main__":
+        app()
 
 with aba2: ######################  ABA para Pesquisa
 
