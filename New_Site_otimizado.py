@@ -17,24 +17,38 @@ st.set_page_config(layout="wide")
 # Define o caminho do diretório atual
 diretorio_atual = os.path.dirname(__file__)
 
-imagem_path = os.path.join(diretorio_atual, 'bercos.jpg')  # Substitua com o URL ou o caminho da sua imagem
-imagem = st.image(imagem_path, use_column_width=True)
+# Caminho da imagem principal
+imagem_path = os.path.join(diretorio_atual, 'bercos.jpg')
+if os.path.exists(imagem_path):
+    st.image(imagem_path, use_column_width=True)
+else:
+    st.error(f"Erro: Arquivo 'bercos.jpg' não encontrado em {imagem_path}")
 
-
+# Função para carregar imagem em Base64
 def carregar_imagem_base64(imagem_path):
-    with open(imagem_path, "rb") as file:
-        return base64.b64encode(file.read()).decode()
+    if os.path.exists(imagem_path):
+        with open(imagem_path, "rb") as file:
+            return base64.b64encode(file.read()).decode()
+    else:
+        st.error(f"Erro: Arquivo '{imagem_path}' não encontrado")
+        return None
 
+# Carrega imagem em Base64
 imagem_base64 = carregar_imagem_base64(imagem_path)
+
+# Caminho do logo
+logo_path = os.path.join(diretorio_atual, 'logo_porto.png')
+if os.path.exists(logo_path):
+    st.sidebar.image(logo_path, use_container_width=True)
+else:
+    st.sidebar.error(f"Erro: Arquivo 'logo_porto.png' não encontrado em {logo_path}")
+
+# Título do site
+st.title("OCEAN_REPORT")
 
 ############################################# Cria abas do site, ex: Report, Ensino, Pesquisa #############################################################
 aba1, aba2, aba3 = st.tabs(["📊 Report", "🔍 Pesquisa", "📚 Ensino"])
 with aba1: ######################  ABA para Report 
-    ### Carrega e define siderbar com a logo do porto
-    logo_path = os.path.join(diretorio_atual, 'logo_porto.png')
-    st.sidebar.image(logo_path, use_container_width=True)
-    ### texto explicativo sobre a proposta do site 
-    st.title("OCEAN_REPORT")
     texto_justificado = """
     <div style='text-align: justify;'>
         O Porto do Itaqui é hub logístico comprometido não apenas com a eficiência operacional, mas também com o monitoramento das condições oceanográficas e meteorológicas. Este compromisso é evidenciado pela disponibilização de produtos observacionais e de modelagem. Nesse reporte, o Porto do Itaqui, stakeholders, pesquisadores e a comunidade em geral podem acessar os produtos de monitoramento. O Porto do Desenvolvimento promove uma gestão portuária sustentável e informada, que contribui para a segurança, eficiência e competitividade das operações portuárias.
