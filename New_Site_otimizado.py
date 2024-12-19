@@ -630,67 +630,67 @@ if __name__ == "__main__":
 
 with aba2: ######################  ABA para Pesquisa
 
-st.title("Pesquisa Desenvolvimento e Inovação no Complexo Estuarino de São Marcos")
-
-Intro = """
-<div style='text-align: justify;'>
-O Porto do Itaqui, em parceria com a Fundação de Amparo à Pesquisa do Estado do Maranhão (FAPEMA), apoia projetos de Pesquisa, Desenvolvimento e Inovação (PD&I) voltados aos setores portuário, marítimo e logístico. Essa iniciativa fortalece vínculos com universidades e promove soluções inovadoras para os desafios do setor, além de estimular o desenvolvimento de produtos, processos e a capacitação de pessoas. O Porto financia e acompanha os projetos, oferecendo suporte aos pesquisadores, enquanto a FAPEMA é responsável pela gestão dos editais, concessão de bolsas e avaliação científica. A parceria também busca intensificar a relação Porto-Cidade e colaborar com os Objetivos de Desenvolvimento Sustentável (ODS) e o Plano Maranhão 2050, fomentando crescimento econômico, inovação, sustentabilidade e inclusão. Nesta página, apresentamos os resultados das pesquisas relacionadas à dinâmica do Complexo Estuarino da Baía de São Marcos (CEBS).
-</div>
-"""
-st.write(Intro, unsafe_allow_html=True)
+    st.title("Pesquisa Desenvolvimento e Inovação no Complexo Estuarino de São Marcos")
+    
+    Intro = """
+    <div style='text-align: justify;'>
+    O Porto do Itaqui, em parceria com a Fundação de Amparo à Pesquisa do Estado do Maranhão (FAPEMA), apoia projetos de Pesquisa, Desenvolvimento e Inovação (PD&I) voltados aos setores portuário, marítimo e logístico. Essa iniciativa fortalece vínculos com universidades e promove soluções inovadoras para os desafios do setor, além de estimular o desenvolvimento de produtos, processos e a capacitação de pessoas. O Porto financia e acompanha os projetos, oferecendo suporte aos pesquisadores, enquanto a FAPEMA é responsável pela gestão dos editais, concessão de bolsas e avaliação científica. A parceria também busca intensificar a relação Porto-Cidade e colaborar com os Objetivos de Desenvolvimento Sustentável (ODS) e o Plano Maranhão 2050, fomentando crescimento econômico, inovação, sustentabilidade e inclusão. Nesta página, apresentamos os resultados das pesquisas relacionadas à dinâmica do Complexo Estuarino da Baía de São Marcos (CEBS).
+    </div>
+    """
+    st.write(Intro, unsafe_allow_html=True)
 
 with aba3: ######################  ABA para Ensino 
 
-# Exibindo o texto no Streamlit
-st.title("Complexo Estuarino de São Marcos")
-
-texto1 = """**Esta seção é dedicada aos entusiastas das ciências do mar e da atmosfera. Aqui, você encontra explicações sobre a dinâmica costeira do Complexo Estuarino de São Marcos (CESM).**
-
-O Complexo Estuarino de São Marcos (CESM), localizado no estado do Maranhão, Brasil, está situado em uma área de transição climática entre o semiárido nordestino e a floresta amazônica. 
-A região apresenta dois períodos climáticos distintos: uma estação chuvosa de janeiro a junho, e uma estação seca de agosto a dezembro, com uma precipitação média anual de 2.115 mm, influenciada pela Zona de Convergência Intertropical. 
-O CESM recebe aportes fluviais principalmente da bacia do Mearim, além de contribuições de outras pequenas bacias. A descarga média anual de água doce é de 413 m³/s, com variações sazonais."""
-
-# Exibir o texto formatado no Streamlit
-st.write(texto1, unsafe_allow_html=True)
-imagem_path = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Figura_1.png'  # Substitua com o URL ou o caminho da sua imagem
-imagem = st.image(imagem_path)
-
-texto2 = """
-<p style='text-align: justify;'>
-O rio Mearim exerce uma influência significativa nas correntes da Baía de São Marcos, especialmente nas proximidades do Porto do Itaqui. Suas descargas fluviais, principalmente durante a estação chuvosa, 
-intensificam o regime hidrodinâmico da baía, criando um forte gradiente de salinidade e influenciando diretamente as correntes estuarinas. No Porto do Itaqui, essa interação entre as águas do rio, as marés e a geologia local resulta 
-na formação de vórtices de correntes nas áreas adjacentes aos cais. Esses vórtices são gerados pela convergência de fluxos de maré com a corrente fluvial, criando zonas de circulação turbulenta 
-nas bordas dos cais, que podem impactar a sedimentação, a erosão das margens e a manobrabilidade das embarcações. Um exemplo desses vórtices pode ser observado na figura abaixo.
-</p>
-"""
-
-# Exibir o texto justificado no Streamlit
-st.markdown(texto2, unsafe_allow_html=True)
-col1, col2 = st.columns(2)
-# Caminhos dos vídeos
-video_1 = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Velocidade _Correntes_Ampliado.mp4'  # Substitua pelo caminho do seu primeiro vídeo
-video_2 = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Velocidade_Correntes_Local.mp4'  # Substitua pelo caminho do seu segundo vídeo
-# Carregar o primeiro vídeo na primeira coluna
-with col1:
-    st.caption("### Velocidade de Correntes durante o mês de Outubro de 2016 - Menor resolução")
-    st.video(video_1)
-
-# Carregar o segundo vídeo na segunda coluna
-with col2:
-    st.caption("### Velocidade de Correntes durante o mês de Outubro de 2016 - Maior resolução")
-    st.video(video_2)
-
-# Definir o texto corrigido
-texto3 = """
-<p style='text-align: justify;'>
-A Ilha de Guarapira desempenha um papel essencial na formação de vórtices anticiclônicos na Baía de São Marcos, especialmente nos berços 106 a 108 do Porto do Itaqui. 
-Ao desviar as correntes de maré, a ilha cria zonas de baixa pressão que favorecem esses redemoinhos. De maneira geral, as ilhas interferem na hidrodinâmica local ao alterar a velocidade e a pressão das correntes, gerando vórtices. 
-No caso de Guarapira, isso afeta tanto a circulação de água quanto a redistribuição de sedimentos e nutrientes, influenciando a erosão e a deposição no fundo marinho.
-</p>
-"""
-# Exibir o texto justificado no Streamlit
-st.markdown(texto3, unsafe_allow_html=True)
-video_3 = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Velocidade_Corrente_de_mare_vazao_2024_10_18.mp4'  # Substitua pelo caminho do seu primeiro vídeo
-st.caption("### Vórtice anticiclônico formado na preamar em outubro de 2024.")
-st.video(video_3)
+    # Exibindo o texto no Streamlit
+    st.title("Complexo Estuarino de São Marcos")
+    
+    texto1 = """**Esta seção é dedicada aos entusiastas das ciências do mar e da atmosfera. Aqui, você encontra explicações sobre a dinâmica costeira do Complexo Estuarino de São Marcos (CESM).**
+    
+    O Complexo Estuarino de São Marcos (CESM), localizado no estado do Maranhão, Brasil, está situado em uma área de transição climática entre o semiárido nordestino e a floresta amazônica. 
+    A região apresenta dois períodos climáticos distintos: uma estação chuvosa de janeiro a junho, e uma estação seca de agosto a dezembro, com uma precipitação média anual de 2.115 mm, influenciada pela Zona de Convergência Intertropical. 
+    O CESM recebe aportes fluviais principalmente da bacia do Mearim, além de contribuições de outras pequenas bacias. A descarga média anual de água doce é de 413 m³/s, com variações sazonais."""
+    
+    # Exibir o texto formatado no Streamlit
+    st.write(texto1, unsafe_allow_html=True)
+    imagem_path = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Figura_1.png'  # Substitua com o URL ou o caminho da sua imagem
+    imagem = st.image(imagem_path)
+    
+    texto2 = """
+    <p style='text-align: justify;'>
+    O rio Mearim exerce uma influência significativa nas correntes da Baía de São Marcos, especialmente nas proximidades do Porto do Itaqui. Suas descargas fluviais, principalmente durante a estação chuvosa, 
+    intensificam o regime hidrodinâmico da baía, criando um forte gradiente de salinidade e influenciando diretamente as correntes estuarinas. No Porto do Itaqui, essa interação entre as águas do rio, as marés e a geologia local resulta 
+    na formação de vórtices de correntes nas áreas adjacentes aos cais. Esses vórtices são gerados pela convergência de fluxos de maré com a corrente fluvial, criando zonas de circulação turbulenta 
+    nas bordas dos cais, que podem impactar a sedimentação, a erosão das margens e a manobrabilidade das embarcações. Um exemplo desses vórtices pode ser observado na figura abaixo.
+    </p>
+    """
+    
+    # Exibir o texto justificado no Streamlit
+    st.markdown(texto2, unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    # Caminhos dos vídeos
+    video_1 = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Velocidade _Correntes_Ampliado.mp4'  # Substitua pelo caminho do seu primeiro vídeo
+    video_2 = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Velocidade_Correntes_Local.mp4'  # Substitua pelo caminho do seu segundo vídeo
+    # Carregar o primeiro vídeo na primeira coluna
+    with col1:
+        st.caption("### Velocidade de Correntes durante o mês de Outubro de 2016 - Menor resolução")
+        st.video(video_1)
+    
+    # Carregar o segundo vídeo na segunda coluna
+    with col2:
+        st.caption("### Velocidade de Correntes durante o mês de Outubro de 2016 - Maior resolução")
+        st.video(video_2)
+    
+    # Definir o texto corrigido
+    texto3 = """
+    <p style='text-align: justify;'>
+    A Ilha de Guarapira desempenha um papel essencial na formação de vórtices anticiclônicos na Baía de São Marcos, especialmente nos berços 106 a 108 do Porto do Itaqui. 
+    Ao desviar as correntes de maré, a ilha cria zonas de baixa pressão que favorecem esses redemoinhos. De maneira geral, as ilhas interferem na hidrodinâmica local ao alterar a velocidade e a pressão das correntes, gerando vórtices. 
+    No caso de Guarapira, isso afeta tanto a circulação de água quanto a redistribuição de sedimentos e nutrientes, influenciando a erosão e a deposição no fundo marinho.
+    </p>
+    """
+    # Exibir o texto justificado no Streamlit
+    st.markdown(texto3, unsafe_allow_html=True)
+    video_3 = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Velocidade_Corrente_de_mare_vazao_2024_10_18.mp4'  # Substitua pelo caminho do seu primeiro vídeo
+    st.caption("### Vórtice anticiclônico formado na preamar em outubro de 2024.")
+    st.video(video_3)
 
