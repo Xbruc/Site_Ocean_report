@@ -14,8 +14,12 @@ st.set_page_config(layout="wide")
 
 ############################################## carrega imagens de cabeçalho #############################################################################
 
-imagem_path = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/bercos.jpg'  
-imagem = st.image(imagem_path, use_container_width=True)
+# Define o caminho do diretório atual
+diretorio_atual = os.path.dirname(__file__)
+
+imagem_path = os.path.join(diretorio_atual, 'bercos.jpg')  # Substitua com o URL ou o caminho da sua imagem
+imagem = st.image(imagem_path, use_column_width=True)
+
 
 def carregar_imagem_base64(imagem_path):
     with open(imagem_path, "rb") as file:
