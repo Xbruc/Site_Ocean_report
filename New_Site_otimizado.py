@@ -108,12 +108,12 @@ with aba1: ######################  ABA para Report
             title_text = 'Localização das estações oceanográficas', title_x=0.5,
             geo_scope='usa', font_color="black")
 
- # URL base do repositório GitHub
+# URL base do repositório GitHub
 GITHUB_BASE_URL = "https://raw.githubusercontent.com/Xbruc/Site_Ocean_report/main/"
 
 # Função genérica para carregar os dados com cache para otimização
 @st.cache_data
-def carregar_dados(caminho_relativo, sheet_name=None, data_coluna=None):
+def carregar_dados(caminho_relativo, sheet_name=0, data_coluna=None):
     """
     Função para carregar dados de um arquivo Excel diretamente do GitHub.
     """
@@ -121,17 +121,22 @@ def carregar_dados(caminho_relativo, sheet_name=None, data_coluna=None):
         # Constrói a URL completa
         url = GITHUB_BASE_URL + caminho_relativo
         
-        # Carrega o DataFrame do arquivo Excel
-        df = pd.read_excel(url, sheet_name=sheet_name, engine="openpyxl")
+        # Carrega os dados do Excel
+        data = pd.read_excel(url, sheet_name=sheet_name, engine="openpyxl")
+        
+        # Caso seja um dicionário, converte para DataFrame
+        if isinstance(data, dict):
+            st.warning(f"O arquivo '{caminho_relativo}' contém múltiplas planilhas. Usando a primeira.")
+            data = next(iter(data.values()))  # Obtém o primeiro DataFrame
         
         # Verifica e converte a coluna de data, se especificada
         if data_coluna:
-            if data_coluna in df.columns:
-                df[data_coluna] = pd.to_datetime(df[data_coluna], errors='coerce')
+            if data_coluna in data.columns:
+                data[data_coluna] = pd.to_datetime(data[data_coluna], errors='coerce')
             else:
                 st.warning(f"A coluna '{data_coluna}' não foi encontrada no arquivo '{caminho_relativo}'.")
         
-        return df
+        return data
     
     except Exception as e:
         st.error(f"Erro ao carregar o arquivo '{caminho_relativo}': {e}")
@@ -150,7 +155,7 @@ dados_material_organico = carregar_dados('Parametros_fisico_quimicos.xlsx', shee
 dados_material_inorganico = carregar_dados('Parametros_fisico_quimicos.xlsx', sheet_name='Material_inorganico')
 dados_sedimento_organico = carregar_dados('Parametros_fisico_quimicos.xlsx', sheet_name='Sedimentos_Orgânicos')
 dados_sedimento_inorganico = carregar_dados('Parametros_fisico_quimicos.xlsx', sheet_name='Sedimentos_Inorgânicos')
-    
+
     # Função principal do Streamlit
 def app():
     if Dataset == 'Dados Observacionai':
