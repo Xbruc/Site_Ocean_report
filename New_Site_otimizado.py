@@ -131,7 +131,7 @@ def carregar_dados(caminho_relativo, sheet_name=None, data_coluna=None):
         return pd.DataFrame()  # Retorna um DataFrame vazio em caso de erro
 
 # Carregar dados utilizando a função genérica
-dados_corrente = carregar_dados('corrente_porto_todos_pontos.xlsx', data_coluna='Time')
+dados_corrente = carregar_dados('corrente_porto_todos_pontos.xlsx')
 dados_batimetria = carregar_dados('Batimetria_22_23_r10.xlsx')
 dados_mare = carregar_dados('df_mare_hourly.xlsx')
 dados_granolometria = carregar_dados('Granolometria_14_23.xlsx')
