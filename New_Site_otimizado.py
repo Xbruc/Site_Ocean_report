@@ -663,7 +663,7 @@ with aba3: ######################  ABA para Ensino
     
     # Exibir o texto formatado no Streamlit
     st.write(texto1, unsafe_allow_html=True)
-    imagem_path = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Figura_1.png'  # Substitua com o URL ou o caminho da sua imagem
+    imagem_path = GITHUB_BASE_URL + 'Figura_1.png'  # Substitua com o URL ou o caminho da sua imagem
     imagem = st.image(imagem_path)
     
     texto2 = """
@@ -679,8 +679,8 @@ with aba3: ######################  ABA para Ensino
     st.markdown(texto2, unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     # Caminhos dos vídeos
-    video_1 = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Velocidade _Correntes_Ampliado.mp4'  # Substitua pelo caminho do seu primeiro vídeo
-    video_2 = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Velocidade_Correntes_Local.mp4'  # Substitua pelo caminho do seu segundo vídeo
+    video_1 = ("https://youtu.be/3zo3LGst4IU")  # Substitua pelo caminho do seu primeiro vídeo
+    video_2 = ("https://youtu.be/WWOOlWrSUGY")  # Substitua pelo caminho do seu segundo vídeo
     # Carregar o primeiro vídeo na primeira coluna
     with col1:
         st.caption("### Velocidade de Correntes durante o mês de Outubro de 2016 - Menor resolução")
@@ -701,7 +701,7 @@ with aba3: ######################  ABA para Ensino
     """
     # Exibir o texto justificado no Streamlit
     st.markdown(texto3, unsafe_allow_html=True)
-    video_3 = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Velocidade_Corrente_de_mare_vazao_2024_10_18.mp4'  # Substitua pelo caminho do seu primeiro vídeo
+    video_3 = ("https://youtu.be/ISuXZV42mrU")  # Substitua pelo caminho do seu primeiro vídeo
     st.caption("### Vórtice anticiclônico formado na preamar em outubro de 2024.")
     st.video(video_3)
 
