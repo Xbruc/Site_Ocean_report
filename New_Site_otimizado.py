@@ -9,7 +9,7 @@ from datetime import datetime
 import base64
 import numpy as np
 import matplotlib.pyplot as plt
-
+import os 
 st.set_page_config(layout="wide")
 
 ############################################## carrega imagens de cabeçalho #############################################################################
