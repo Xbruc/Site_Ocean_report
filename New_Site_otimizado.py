@@ -118,7 +118,7 @@ with aba1: ######################  ABA para Report
         
     @st.cache_data
     def carregar_dados(caminho, data_coluna=None):
-        df = pd.read_excel(os.path.join(diretorio_atual)
+        df = pd.read_excel(os.path.join(diretorio_atual))
         if data_coluna:
             df[data_coluna] = pd.to_datetime(df[data_coluna])
         return df
