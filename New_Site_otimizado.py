@@ -14,34 +14,52 @@ st.set_page_config(layout="wide")
 
 ############################################## carrega imagens de cabeçalho #############################################################################
 
-# Define o caminho do diretório atual
-diretorio_atual = os.path.dirname(__file__)
+# Função para verificar e carregar uma imagem
+def carregar_imagem(caminho, mensagem_erro, exibir_na_sidebar=False, use_column_width=True):
+    """
+    Carrega e exibe uma imagem no Streamlit.
+    - caminho: Caminho da imagem
+    - mensagem_erro: Mensagem de erro se a imagem não for encontrada
+    - exibir_na_sidebar: Se True, exibe a imagem na barra lateral
+    - use_column_width: Se True, ajusta a largura da imagem ao container
+    """
+    if os.path.exists(caminho):
+        if exibir_na_sidebar:
+            st.sidebar.image(caminho, use_column_width=use_column_width)
+        else:
+            st.image(caminho, use_column_width=use_column_width)
+    else:
+        if exibir_na_sidebar:
+            st.sidebar.error(mensagem_erro)
+        else:
+            st.error(mensagem_erro)
+
+# Função para carregar imagem em Base64
+def carregar_imagem_base64(caminho):
+    """
+    Retorna uma string Base64 de uma imagem.
+    - caminho: Caminho da imagem
+    """
+    if os.path.exists(caminho):
+        with open(caminho, "rb") as file:
+            return base64.b64encode(file.read()).decode()
+    else:
+        st.error(f"Erro: Arquivo '{caminho}' não encontrado")
+        return None
+
+# Define o diretório atual
+diretorio_atual = os.getcwd()  # Use getcwd() ao invés de __file__ para maior compatibilidade
 
 # Caminho da imagem principal
 imagem_path = os.path.join(diretorio_atual, 'bercos.jpg')
-if os.path.exists(imagem_path):
-    st.image(imagem_path, use_column_width=True)
-else:
-    st.error(f"Erro: Arquivo 'bercos.jpg' não encontrado em {imagem_path}")
-
-# Função para carregar imagem em Base64
-def carregar_imagem_base64(imagem_path):
-    if os.path.exists(imagem_path):
-        with open(imagem_path, "rb") as file:
-            return base64.b64encode(file.read()).decode()
-    else:
-        st.error(f"Erro: Arquivo '{imagem_path}' não encontrado")
-        return None
-
-# Carrega imagem em Base64
-imagem_base64 = carregar_imagem_base64(imagem_path)
+carregar_imagem(imagem_path, f"Erro: Arquivo 'bercos.jpg' não encontrado em {imagem_path}")
 
 # Caminho do logo
 logo_path = os.path.join(diretorio_atual, 'logo_porto.png')
-if os.path.exists(logo_path):
-    st.sidebar.image(logo_path, use_container_width=True)
-else:
-    st.sidebar.error(f"Erro: Arquivo 'logo_porto.png' não encontrado em {logo_path}")
+carregar_imagem(logo_path, f"Erro: Arquivo 'logo_porto.png' não encontrado em {logo_path}", exibir_na_sidebar=True)
+
+# Carregar imagem em Base64 (caso necessário)
+imagem_base64 = carregar_imagem_base64(imagem_path)
 
 # Título do site
 st.title("OCEAN_REPORT")
