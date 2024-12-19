@@ -108,32 +108,76 @@ with aba1: ######################  ABA para Report
             title_text = 'Localização das estações oceanográficas', title_x=0.5,
             geo_scope='usa', font_color="black")
 
-    # # @st.cache_data
-    # def carregar_dados():
-    #     # Carregar os dados (substitua pelo caminho dos seus dados reais)
-    #     df = pd.read_excel(os.path.join(diretorio_atual, 'corrente_porto_todos_pontos.xlsx'))
-    #     # Converter coluna de data para o formato datetime
-    #     df['Time'] = pd.to_datetime(df['Time'])
-    #     return df
-        
-    @st.cache_data
-    def carregar_dados(caminho, data_coluna=None):
-        df = pd.read_excel(os.path.join(diretorio_atual))
-        if data_coluna:
-            df[data_coluna] = pd.to_datetime(df[data_coluna])
+    # @st.cache_data
+    def carregar_dados():
+        # Carregar os dados (substitua pelo caminho dos seus dados reais)
+        df = pd.read_excel(os.path.join(diretorio_atual, 'corrente_porto_todos_pontos.xlsx'))
+        # Converter coluna de data para o formato datetime
+        df['Time'] = pd.to_datetime(df['Time'])
         return df
 
-    # Carregar os dados utilizando a função genérica
-    dados_corrente = carregar_dados('corrente_porto_todos_pontos.xlsx', data_coluna='Time')
-    dados_batimetria = carregar_dados('Batimetria_22_23_r10.xlsx')
-    dados_mare = carregar_dados('df_mare_6hourly.xlsx')
-    dados_granolometria = carregar_dados('Granolometria_14_23.xlsx')
-    dados_meteorologia = carregar_dados('Meteorologia_daily.xlsx')
-    dados_p_fisico_quimicos = pd.read_excel(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='P_fisico_quimicos')
-    dados_material_organico = pd.read_excel(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Material_organico')
-    dados_material_inorganico = pd.read_excel(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Material_inorganico')
-    dados_sedimento_organico = pd.read_excel(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Sedimentos_Orgânicos')
-    dados_sedimento_inorganico = pd.read_excel(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Sedimentos_Inorgânicos')
+    # Função para carregar os dados com cache para otimização
+    @st.cache_data
+    def carregar_dados():
+        # Carregar os dados (substitua pelo caminho dos seus dados reais)
+        dados_corrente = pd.read_excel(os.path.join(diretorio_atual, 'corrente_porto_todos_pontos.xlsx'))
+        # Converter coluna de data para o formato datetime
+        dados_corrente['Time'] = pd.to_datetime(dados_corrente['Time'])
+        return dados_corrente
+
+    @st.cache_data
+    def carregar_dados_Bt():
+        # Carregar os dados (substitua pelo caminho dos seus dados reais)
+        dados_batimetria = pd.read_excel(os.path.join(diretorio_atual, 'Batimetria_22_23_r10.xlsx'))
+        return dados_batimetria
+
+    @st.cache_data
+    def carregar_dados_MR():
+        # Carregar os dados (substitua pelo caminho dos seus dados reais)
+        dados_mare = pd.read_excel(os.path.join(diretorio_atual, 'df_mare_hourly.xlsx'))
+        return dados_mare
+
+    @st.cache_data
+    def carregar_dados_GR():
+        # Carregar os dados (substitua pelo caminho dos seus dados reais)
+        dados_granolometria = pd.read_excel(os.path.join(diretorio_atual, 'Granolometria_14_23.xlsx'))
+        return dados_granolometria
+
+    @st.cache_data
+    def carregar_dados_MT():
+        # Carregar os dados (substitua pelo caminho dos seus dados reais)
+        dados_meteorologia = pd.read_excel(os.path.join(diretorio_atual, 'Meteorologia_daily.xlsx'))
+        return dados_meteorologia
+
+    @st.cache_data
+    def carregar_dados_MT():
+        # Carregar os dados (substitua pelo caminho dos seus dados reais)
+        dados_p_fisico_quimicos = pd.read_excel(os.path.join(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='P_fisico_quimicos'))
+        return dados_p_fisico_quimicos
+
+    @st.cache_data
+    def carregar_dados_MT():
+        # Carregar os dados (substitua pelo caminho dos seus dados reais)
+        dados_material_organico = pd.read_excel(os.path.join(diretorio_atual,  'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Material_organico'))
+        return dados_material_organico
+
+    @st.cache_data
+    def carregar_dados_MT():
+        # Carregar os dados (substitua pelo caminho dos seus dados reais)
+        dados_material_inorganico = pd.read_excel(os.path.join(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Material_inorganico'))
+        return dados_material_inorganico
+
+    @st.cache_data
+    def carregar_dados_MT():
+        # Carregar os dados (substitua pelo caminho dos seus dados reais)
+        dados_sedimento_organico = pd.read_excel(os.path.join(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Sedimentos_Orgânicos'))
+        return dados_sedimento_organico
+        
+    @st.cache_data
+    def carregar_dados_MT():
+        # Carregar os dados (substitua pelo caminho dos seus dados reais)
+        dados_sedimento_inorganico = pd.read_excel(os.path.join(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Sedimentos_Inorgânicos'))
+        return dados_sedimento_inorganico
 
     # Função principal do Streamlit
     def app():
