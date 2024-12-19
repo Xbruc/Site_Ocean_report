@@ -31,7 +31,7 @@ imagem_base64 = carregar_imagem_base64(imagem_path)
 aba1, aba2, aba3 = st.tabs(["📊 Report", "🔍 Pesquisa", "📚 Ensino"])
 with aba1: ######################  ABA para Report 
     ### Carrega e define siderbar com a logo do porto
-    logo_path = '/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/logo_porto.png'
+    logo_path = os.path.join(diretorio_atual, 'logo_porto.png')
     st.sidebar.image(logo_path, use_container_width=True)
     ### texto explicativo sobre a proposta do site 
     st.title("OCEAN_REPORT")
