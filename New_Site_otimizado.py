@@ -108,25 +108,32 @@ with aba1: ######################  ABA para Report
             title_text = 'Localização das estações oceanográficas', title_x=0.5,
             geo_scope='usa', font_color="black")
 
-
+    # # @st.cache_data
+    # def carregar_dados():
+    #     # Carregar os dados (substitua pelo caminho dos seus dados reais)
+    #     df = pd.read_excel(os.path.join(diretorio_atual, 'corrente_porto_todos_pontos.xlsx'))
+    #     # Converter coluna de data para o formato datetime
+    #     df['Time'] = pd.to_datetime(df['Time'])
+    #     return df
+        
     @st.cache_data
     def carregar_dados(caminho, data_coluna=None):
-        df = pd.read_excel(caminho)
+        df = pd.read_excel(os.path.join(diretorio_atual)
         if data_coluna:
             df[data_coluna] = pd.to_datetime(df[data_coluna])
         return df
 
     # Carregar os dados utilizando a função genérica
-    dados_corrente = carregar_dados('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/corrente_porto_todos_pontos.xlsx', data_coluna='Time')
-    dados_batimetria = carregar_dados('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Batimetria_22_23_r10.xlsx')
-    dados_mare = carregar_dados('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/df_mare_6hourly.xlsx')
-    dados_granolometria = carregar_dados('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Granolometria_14_23.xlsx')
-    dados_meteorologia = carregar_dados('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Meteorologia_daily.xlsx')
-    dados_p_fisico_quimicos = pd.read_excel('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='P_fisico_quimicos')
-    dados_material_organico = pd.read_excel('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Material_organico')
-    dados_material_inorganico = pd.read_excel('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Material_inorganico')
-    dados_sedimento_organico = pd.read_excel('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Sedimentos_Orgânicos')
-    dados_sedimento_inorganico = pd.read_excel('/Users/wesley.inovacao/Documents/Integra_dados_meteoceano/Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Sedimentos_Inorgânicos')
+    dados_corrente = carregar_dados('corrente_porto_todos_pontos.xlsx', data_coluna='Time')
+    dados_batimetria = carregar_dados('Batimetria_22_23_r10.xlsx')
+    dados_mare = carregar_dados('df_mare_6hourly.xlsx')
+    dados_granolometria = carregar_dados('Granolometria_14_23.xlsx')
+    dados_meteorologia = carregar_dados('Meteorologia_daily.xlsx')
+    dados_p_fisico_quimicos = pd.read_excel(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='P_fisico_quimicos')
+    dados_material_organico = pd.read_excel(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Material_organico')
+    dados_material_inorganico = pd.read_excel(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Material_inorganico')
+    dados_sedimento_organico = pd.read_excel(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Sedimentos_Orgânicos')
+    dados_sedimento_inorganico = pd.read_excel(diretorio_atual, 'Parametros_fisico_quimicos.xlsx', engine="openpyxl", sheet_name='Sedimentos_Inorgânicos')
 
     # Função principal do Streamlit
     def app():
