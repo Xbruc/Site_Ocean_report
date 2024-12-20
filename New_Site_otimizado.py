@@ -203,7 +203,7 @@ def app():
                     escala_cores = px.colors.sequential.Turbo
                     
                     # Gráfico para dados válidos
-                    fig = px.scatter(
+                    fig1 = px.scatter(
                         dados_validos,
                         x="Time",  # Coluna de tempo
                         y="Depth",  # Coluna de profundidade
@@ -228,7 +228,7 @@ def app():
                         yaxis_title="Profundidade (m)",
                         margin={"r": 0, "t": 40, "l": 0, "b": 0}
                     )
-                    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+                    st.plotly_chart(fig1, theme="streamlit", use_container_width=True)
 
 
             elif variavel == 'Batimetria':
@@ -661,7 +661,7 @@ with aba3: ######################  ABA para Ensino
     O CESM recebe aportes fluviais principalmente da bacia do Mearim, além de contribuições de outras pequenas bacias. A descarga média anual de água doce é de 413 m³/s, com variações sazonais."""
     
     # Exibir o texto formatado no Streamlit
-    st.write(texto1, unsafe_allow_html=True)
+    st.markdown(texto1, unsafe_allow_html=True)
     imagem_path = GITHUB_BASE_URL + 'Figura_1.png'  # Substitua com o URL ou o caminho da sua imagem
     imagem = st.image(imagem_path)
     
