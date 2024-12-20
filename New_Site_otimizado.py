@@ -241,7 +241,7 @@ with aba1: ######################  ABA para Report
                             st.error("O conjunto de dados de batimetria está incompleto. Verifique as colunas.")
                         else:
                             # Garantir que year_month está no formato correto
-                            if "year_month" in dados_batimetria.columns:
+                            if "Data" in dados_batimetria.columns:
                                 dados_batimetria["Data"] = dados_batimetria["Data"].astype(str)
     
                             # Exibir o gráfico
