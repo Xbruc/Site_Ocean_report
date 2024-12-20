@@ -535,105 +535,105 @@ def app():
                 # Exibir o gráfico no Streamlit
                 st.plotly_chart(fig)
 
-            elif variavel == 'Material Orgânico da Água':
-                    # Criar o selectbox para selecionar a campanha
-                estacao_selecionada = st.sidebar.selectbox("Selecione a Campanha", dados_material_organico["Orgânicos"].unique())
+            # elif variavel == 'Material Orgânico da Água':
+            #         # Criar o selectbox para selecionar a campanha
+            #     estacao_selecionada = st.sidebar.selectbox("Selecione a Campanha", dados_material_organico["Orgânicos"].unique())
 
-                # Filtrar o DataFrame com base na campanha selecionada
-                dados_filtrados = dados_material_organico[dados_material_organico["Orgânicos"] == estacao_selecionada]
+            #     # Filtrar o DataFrame com base na campanha selecionada
+            #     dados_filtrados = dados_material_organico[dados_material_organico["Orgânicos"] == estacao_selecionada]
 
-                # Transformar os dados para o formato longo usando `melt`
-                temp = dados_filtrados.melt(id_vars='Campanha', 
-                                            var_name='Ponto', 
-                                            value_name=f"{estacao_selecionada}")
+            #     # Transformar os dados para o formato longo usando `melt`
+            #     temp = dados_filtrados.melt(id_vars='Campanha', 
+            #                                 var_name='Ponto', 
+            #                                 value_name=f"{estacao_selecionada}")
 
-                # Plotar o gráfico de barras interativo
-                fig = px.bar(
-                    temp,
-                    x='Ponto',
-                    y=f"{estacao_selecionada}",
-                    color='Ponto',  # Cores distintas para cada ponto
-                    animation_frame="Campanha" if "Campanha" in temp.columns else None,
-                    labels=f"{estacao_selecionada}",
-                    title= f"{estacao_selecionada}"
-                )
+            #     # Plotar o gráfico de barras interativo
+            #     fig = px.bar(
+            #         temp,
+            #         x='Ponto',
+            #         y=f"{estacao_selecionada}",
+            #         color='Ponto',  # Cores distintas para cada ponto
+            #         animation_frame="Campanha" if "Campanha" in temp.columns else None,
+            #         labels=f"{estacao_selecionada}",
+            #         title= f"{estacao_selecionada}"
+            #     )
                 
-                st.plotly_chart(fig)
+            #     st.plotly_chart(fig)
 
-            elif variavel == 'Material Inorgânico da Água':
-                    # Criar o selectbox para selecionar a campanha
-                estacao_selecionada = st.sidebar.selectbox("Selecione a Campanha", dados_material_inorganico["Inorgânicos"].unique())
+            # elif variavel == 'Material Inorgânico da Água':
+            #         # Criar o selectbox para selecionar a campanha
+            #     estacao_selecionada = st.sidebar.selectbox("Selecione a Campanha", dados_material_inorganico["Inorgânicos"].unique())
 
-                # Filtrar o DataFrame com base na campanha selecionada
-                dados_filtrados = dados_material_inorganico[dados_material_inorganico["Inorgânicos"] == estacao_selecionada]
+            #     # Filtrar o DataFrame com base na campanha selecionada
+            #     dados_filtrados = dados_material_inorganico[dados_material_inorganico["Inorgânicos"] == estacao_selecionada]
 
-                # Transformar os dados para o formato longo usando `melt`
-                temp = dados_filtrados.melt(id_vars='Campanha', 
-                                            var_name='Ponto', 
-                                            value_name=f"{estacao_selecionada}")
+            #     # Transformar os dados para o formato longo usando `melt`
+            #     temp = dados_filtrados.melt(id_vars='Campanha', 
+            #                                 var_name='Ponto', 
+            #                                 value_name=f"{estacao_selecionada}")
 
-                # Plotar o gráfico de barras interativo
-                fig = px.bar(
-                    temp,
-                    x='Ponto',
-                    y=f"{estacao_selecionada}",
-                    color='Ponto',  # Cores distintas para cada ponto
-                    animation_frame="Campanha" if "Campanha" in temp.columns else None,
-                    labels=f"{estacao_selecionada}",
-                    title= f"{estacao_selecionada}"
-                )
+            #     # Plotar o gráfico de barras interativo
+            #     fig = px.bar(
+            #         temp,
+            #         x='Ponto',
+            #         y=f"{estacao_selecionada}",
+            #         color='Ponto',  # Cores distintas para cada ponto
+            #         animation_frame="Campanha" if "Campanha" in temp.columns else None,
+            #         labels=f"{estacao_selecionada}",
+            #         title= f"{estacao_selecionada}"
+            #     )
                 
-                st.plotly_chart(fig)
+            #     st.plotly_chart(fig)
 
-            elif variavel == 'Sedimentos Orgânicos':
-                    # Criar o selectbox para selecionar a campanha
-                estacao_selecionada = st.sidebar.selectbox("Selecione a Campanha", dados_sedimento_organico["Sedimentos_Organicos"].unique())
+            # elif variavel == 'Sedimentos Orgânicos':
+            #         # Criar o selectbox para selecionar a campanha
+            #     estacao_selecionada = st.sidebar.selectbox("Selecione a Campanha", dados_sedimento_organico["Sedimentos_Organicos"].unique())
 
-                # Filtrar o DataFrame com base na campanha selecionada
-                dados_filtrados = dados_sedimento_organico[dados_sedimento_organico["Sedimentos_Organicos"] == estacao_selecionada]
+            #     # Filtrar o DataFrame com base na campanha selecionada
+            #     dados_filtrados = dados_sedimento_organico[dados_sedimento_organico["Sedimentos_Organicos"] == estacao_selecionada]
 
-                # Transformar os dados para o formato longo usando `melt`
-                temp = dados_filtrados.melt(id_vars='Campanha', 
-                                            var_name='Ponto', 
-                                            value_name=f"{estacao_selecionada}")
+            #     # Transformar os dados para o formato longo usando `melt`
+            #     temp = dados_filtrados.melt(id_vars='Campanha', 
+            #                                 var_name='Ponto', 
+            #                                 value_name=f"{estacao_selecionada}")
 
-                # Plotar o gráfico de barras interativo
-                fig = px.bar(
-                    temp,
-                    x='Ponto',
-                    y=f"{estacao_selecionada}",
-                    color='Ponto',  # Cores distintas para cada ponto
-                    animation_frame="Campanha" if "Campanha" in temp.columns else None,
-                    labels=f"{estacao_selecionada}",
-                    title= f"{estacao_selecionada}"
-                )
+            #     # Plotar o gráfico de barras interativo
+            #     fig = px.bar(
+            #         temp,
+            #         x='Ponto',
+            #         y=f"{estacao_selecionada}",
+            #         color='Ponto',  # Cores distintas para cada ponto
+            #         animation_frame="Campanha" if "Campanha" in temp.columns else None,
+            #         labels=f"{estacao_selecionada}",
+            #         title= f"{estacao_selecionada}"
+            #     )
 
-                st.plotly_chart(fig)
+            #     st.plotly_chart(fig)
 
-            elif variavel == 'Sedimentos Inorgânicos':
-                    # Criar o selectbox para selecionar a campanha
-                estacao_selecionada = st.sidebar.selectbox("Selecione a Campanha", dados_sedimento_inorganico["Sedimentos_Inorganicos"].unique())
+            # elif variavel == 'Sedimentos Inorgânicos':
+            #         # Criar o selectbox para selecionar a campanha
+            #     estacao_selecionada = st.sidebar.selectbox("Selecione a Campanha", dados_sedimento_inorganico["Sedimentos_Inorganicos"].unique())
 
-                # Filtrar o DataFrame com base na campanha selecionada
-                dados_filtrados = dados_sedimento_inorganico[dados_sedimento_inorganico["Sedimentos_Inorganicos"] == estacao_selecionada]
+            #     # Filtrar o DataFrame com base na campanha selecionada
+            #     dados_filtrados = dados_sedimento_inorganico[dados_sedimento_inorganico["Sedimentos_Inorganicos"] == estacao_selecionada]
 
-                # Transformar os dados para o formato longo usando `melt`
-                temp = dados_filtrados.melt(id_vars='Campanha', 
-                                            var_name='Ponto', 
-                                            value_name=f"{estacao_selecionada}")
+            #     # Transformar os dados para o formato longo usando `melt`
+            #     temp = dados_filtrados.melt(id_vars='Campanha', 
+            #                                 var_name='Ponto', 
+            #                                 value_name=f"{estacao_selecionada}")
 
-                # Plotar o gráfico de barras interativo
-                fig = px.bar(
-                    temp,
-                    x='Ponto',
-                    y=f"{estacao_selecionada}",
-                    color='Ponto',  # Cores distintas para cada ponto
-                    animation_frame="Campanha" if "Campanha" in temp.columns else None,
-                    labels=f"{estacao_selecionada}",
-                    title= f"{estacao_selecionada}"
-                )
+            #     # Plotar o gráfico de barras interativo
+            #     fig = px.bar(
+            #         temp,
+            #         x='Ponto',
+            #         y=f"{estacao_selecionada}",
+            #         color='Ponto',  # Cores distintas para cada ponto
+            #         animation_frame="Campanha" if "Campanha" in temp.columns else None,
+            #         labels=f"{estacao_selecionada}",
+            #         title= f"{estacao_selecionada}"
+            #     )
 
-                st.plotly_chart(fig)
+            #     st.plotly_chart(fig)
 
 # Executa a aplicação
     if __name__ == "__main__":
