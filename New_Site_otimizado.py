@@ -385,7 +385,7 @@ with aba1: ######################  ABA para Report
                 elif variavel == 'Granulometria':
                     
                     # Filtrar colunas que começam com "Estação"
-                    variable_names = [col for col in dados_granolometria.columns if col.lower().startswith('Estação')]
+                    variable_names = [col for col in dados_granolometria.columns if col.lower().startswith('Estação 1')]
                     # Criar um widget de dropdown para selecionar a variável
                     selected_variable = st.sidebar.selectbox("Selecione a Variável", variable_names)
 
