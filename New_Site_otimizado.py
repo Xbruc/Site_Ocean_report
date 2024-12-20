@@ -384,7 +384,7 @@ with aba1: ######################  ABA para Report
                 
                 if variavel == 'Granulometria':
                     # Filtrar colunas que começam com "Estação"
-                    variable_names = [col for col in dados_granolometria.columns if col.lower().startswith('Estação 1')]
+                    variable_names = [col for col in dados_granolometria.columns if col.lower().startswith('Estação')]
                     
                     if not variable_names:
                         st.error("Nenhuma coluna encontrada que comece com 'Estação'.")
