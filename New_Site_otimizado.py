@@ -384,11 +384,11 @@ with aba1: ######################  ABA para Report
                 
                 elif variavel == 'Granulometria':
                     
-                    # Create a list of unique variable names (e.g., 'PM-01', 'PM-02', etc.)
-                    variable_names = [col for col in dados_granolometria.columns if col.startswith('Estação')]
-                    # Create a dropdown widget for selecting the variable
+                    # Filtrar colunas que começam com "Estação"
+                    variable_names = [col for col in dados_granolometria.columns if col.lower().startswith('Estação')]
+                    # Criar um widget de dropdown para selecionar a variável
                     selected_variable = st.sidebar.selectbox("Selecione a Variável", variable_names)
-    
+
                     # Create the plot using Plotly Express
                     fig = px.bar(
                         dados_granolometria,
