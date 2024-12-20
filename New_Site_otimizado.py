@@ -656,7 +656,7 @@ with aba3: ######################  ABA para Ensino
     
     texto1 = """
     <p style='text-align: justify;'>
-    **Esta seção é dedicada aos entusiastas das ciências do mar e da atmosfera. Aqui, você encontra explicações sobre a dinâmica costeira do Complexo Estuarino de São Marcos (CESM).**
+    Esta seção é dedicada aos entusiastas das ciências do mar e da atmosfera. Aqui, você encontra explicações sobre a dinâmica costeira do Complexo Estuarino de São Marcos (CESM).
     
     O Complexo Estuarino de São Marcos (CESM), localizado no estado do Maranhão, Brasil, está situado em uma área de transição climática entre o semiárido nordestino e a floresta amazônica. 
     A região apresenta dois períodos climáticos distintos: uma estação chuvosa de janeiro a junho, e uma estação seca de agosto a dezembro, com uma precipitação média anual de 2.115 mm, influenciada pela Zona de Convergência Intertropical. 
