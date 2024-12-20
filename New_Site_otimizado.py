@@ -654,12 +654,15 @@ with aba3: ######################  ABA para Ensino
     # Exibindo o texto no Streamlit
     st.title("Complexo Estuarino de São Marcos")
     
-    texto1 = """**Esta seção é dedicada aos entusiastas das ciências do mar e da atmosfera. Aqui, você encontra explicações sobre a dinâmica costeira do Complexo Estuarino de São Marcos (CESM).**
+    texto1 = """
+    <p style='text-align: justify;'>
+    **Esta seção é dedicada aos entusiastas das ciências do mar e da atmosfera. Aqui, você encontra explicações sobre a dinâmica costeira do Complexo Estuarino de São Marcos (CESM).**
     
     O Complexo Estuarino de São Marcos (CESM), localizado no estado do Maranhão, Brasil, está situado em uma área de transição climática entre o semiárido nordestino e a floresta amazônica. 
     A região apresenta dois períodos climáticos distintos: uma estação chuvosa de janeiro a junho, e uma estação seca de agosto a dezembro, com uma precipitação média anual de 2.115 mm, influenciada pela Zona de Convergência Intertropical. 
-    O CESM recebe aportes fluviais principalmente da bacia do Mearim, além de contribuições de outras pequenas bacias. A descarga média anual de água doce é de 413 m³/s, com variações sazonais."""
-    
+    O CESM recebe aportes fluviais principalmente da bacia do Mearim, além de contribuições de outras pequenas bacias. A descarga média anual de água doce é de 413 m³/s, com variações sazonais.
+    </p>
+    """
     # Exibir o texto formatado no Streamlit
     st.markdown(texto1, unsafe_allow_html=True)
     imagem_path = GITHUB_BASE_URL + 'Figura_1.png'  # Substitua com o URL ou o caminho da sua imagem
