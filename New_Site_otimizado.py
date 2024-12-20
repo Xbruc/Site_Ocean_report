@@ -230,7 +230,6 @@ with aba1: ######################  ABA para Report
                         )
                         st.plotly_chart(fig, theme="streamlit", use_container_width=True)
     
-    
                 elif variavel == 'Batimetria':
                     if dados_batimetria.empty:
                         st.warning("Nenhum dado disponível para os filtros selecionados.")
@@ -241,12 +240,12 @@ with aba1: ######################  ABA para Report
                             st.error("O conjunto de dados de batimetria está incompleto. Verifique as colunas.")
                         else:
                             # Garantir que year_month está no formato correto
-                            if "Data" in dados_batimetria.columns:
-                                dados_batimetria["Data"] = dados_batimetria["Data"].astype(str)
-    
+                            if "year_month" in dados_batimetria.columns:
+                                dados_batimetria["year_month"] = dados_batimetria["year_month"].astype(str)
+
                             # Exibir o gráfico
                             st.write("**Batimetria no Raio de 10m**")
-    
+
                             fig = px.scatter_mapbox(
                                 dados_batimetria,
                                 lat="lat",
@@ -260,13 +259,13 @@ with aba1: ######################  ABA para Report
                                 mapbox_style="open-street-map",
                                 hover_name="type",
                             )
-    
+
                             # Layout do gráfico
                             fig.update_layout(
                                 font_color="black",
                                 margin={"r": 0, "t": 0, "l": 0, "b": 0}
                             )
-    
+
                             # Renderizar o gráfico
                             st.plotly_chart(fig, theme="streamlit", use_container_width=True)
     
