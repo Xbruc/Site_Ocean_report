@@ -162,7 +162,7 @@ def app():
             if variavel == 'Velocidade de Correntes':
                 st.plotly_chart(loc1, use_container_width=True)
                 st.sidebar.header("Filtros")
-                st.write(dados_corrente)
+                st.write('wesley')
                 # Substituir valores ausentes por NaN explícito (não necessário, mas mantém claro)
                 dados_corrente["Current_Speed"] = dados_corrente["Current_Speed"].fillna(np.nan)
 
