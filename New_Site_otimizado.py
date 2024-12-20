@@ -61,7 +61,7 @@ carregar_imagem(logo_path, f"Erro: Arquivo 'logo_porto.png' não encontrado em {
 imagem_base64 = carregar_imagem_base64(imagem_path)
 
 # Título do site
-st.title("OCEAN_REPORT")
+st.title("OCEAN REPORT")
 
 ############################################# Cria abas do site, ex: Report, Ensino, Pesquisa #############################################################
 aba1, aba2, aba3 = st.tabs(["📊 Report", "🔍 Pesquisa", "📚 Ensino"])
@@ -73,7 +73,7 @@ with aba1: ######################  ABA para Report
     """
     st.write(texto_justificado, unsafe_allow_html=True)
     ### Cria selectbox para especificar o caminho em que determinado dado está (FILTROS) 
-    st.sidebar.header(':blue[OCEAN_REPORT]', divider='blue')
+    st.sidebar.header(':blue[OCEAN REPORT]', divider='blue')
     Dataset = st.sidebar.selectbox( 'Selecione o Dataset', ('Dados Observacionai')) #, 'Dados de Modelagem'))
     regiao = st.sidebar.selectbox( 'Baia', ('Baia de São Marcos'))
     variavel = st.sidebar.selectbox( 'Variáveis', ('Velocidade de Correntes', 'Batimetria', 'Maré', 'Granulometria', 'Meteorologia',
