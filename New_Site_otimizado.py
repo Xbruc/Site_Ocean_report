@@ -242,7 +242,7 @@ with aba1: ######################  ABA para Report
                         else:
                             # Garantir que year_month está no formato correto
                             if "year_month" in dados_batimetria.columns:
-                                dados_batimetria["Data"] = dados_batimetria["Data"].astype(str)
+                                dados_batimetria["year_month"] = dados_batimetria["year_month"].astype(str)
     
                             # Exibir o gráfico
                             st.write("**Batimetria no Raio de 10m**")
@@ -256,7 +256,7 @@ with aba1: ######################  ABA para Report
                                 color_continuous_scale="RdBu",
                                 size_max=5,
                                 zoom=12,
-                                animation_frame="Data" if "Data" in dados_batimetria.columns else None,
+                                animation_frame="year_month" if "year_month" in dados_batimetria.columns else None,
                                 mapbox_style="open-street-map",
                                 hover_name="type",
                             )
