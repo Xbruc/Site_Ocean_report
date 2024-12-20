@@ -5,7 +5,6 @@ import plotly.graph_objects as go
 import plotly.express as px
 import utm
 from datetime import datetime
-#import calendar
 import base64
 import numpy as np
 import matplotlib.pyplot as plt
@@ -156,7 +155,7 @@ dados_material_inorganico = carregar_dados('Parametros_fisico_quimicos.xlsx', sh
 dados_sedimento_organico = carregar_dados('Parametros_fisico_quimicos.xlsx', sheet_name='Sedimentos_Orgânicos')
 dados_sedimento_inorganico = carregar_dados('Parametros_fisico_quimicos.xlsx', sheet_name='Sedimentos_Inorgânicos')
 
-    # Função principal do Streamlit
+# Função principal do Streamlit
 def app():
     if Dataset == 'Dados Observacionai':
         if regiao == 'Baia de São Marcos':
@@ -641,7 +640,7 @@ def app():
 
 with aba2: ######################  ABA para Pesquisa
 
-    st.title("Pesquisa Desenvolvimento e Inovação no Complexo Estuarino de São Marcos - wesley")
+    st.title("Pesquisa Desenvolvimento e Inovação no Complexo Estuarino de São Marcos")
     
     Intro = """
     <div style='text-align: justify;'>
