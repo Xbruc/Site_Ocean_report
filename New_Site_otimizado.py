@@ -240,8 +240,8 @@ with aba1: ######################  ABA para Report
                             st.error("O conjunto de dados de batimetria está incompleto. Verifique as colunas.")
                         else:
                             # Garantir que year_month está no formato correto
-                            if "Ano_mês" in dados_batimetria.columns:
-                                dados_batimetria["Ano_mês"] = dados_batimetria["Ano_mês"].astype(str)
+                            if "year_month" in dados_batimetria.columns:
+                                dados_batimetria["year_month"] = dados_batimetria["year_month"].astype(str)
 
                             # Exibir o gráfico
                             st.write("**Batimetria no Raio de 10m**")
@@ -255,7 +255,7 @@ with aba1: ######################  ABA para Report
                                 color_continuous_scale="RdBu",
                                 size_max=5,
                                 zoom=12,
-                                animation_frame="Ano_mês" if "Ano_mês" in dados_batimetria.columns else None,
+                                animation_frame="year_month" if "year_month" in dados_batimetria.columns else None,
                                 mapbox_style="open-street-map",
                                 hover_name="type",
                             )
