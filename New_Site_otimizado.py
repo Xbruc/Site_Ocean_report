@@ -384,10 +384,10 @@ with aba1: ######################  ABA para Report
                 
                 elif variavel == 'Granulometria':
                     # Filtrar colunas que começam com "Estação", ignorando diferenças de capitalização ou espaços adicionais
-                    variable_names = [col for col in dados_granolometria.columns if col.strip().lower().startswith('estação')]
+                    variable_names = [col for col in dados_granolometria.columns if col.strip().lower().startswith('Ponto')]
                 
                     if not variable_names:
-                        st.error("Nenhuma coluna correspondente encontrada para 'Estação'. Verifique os nomes das colunas na tabela.")
+                        st.error("Nenhuma coluna correspondente encontrada para 'Ponto'. Verifique os nomes das colunas na tabela.")
                     else:
                         # Criar um widget de dropdown para selecionar a variável
                         selected_variable = st.sidebar.selectbox("Selecione a Variável", variable_names)
