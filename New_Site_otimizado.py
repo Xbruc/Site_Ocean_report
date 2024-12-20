@@ -382,38 +382,29 @@ with aba1: ######################  ABA para Report
                     )
                     st.plotly_chart(fig, use_container_width=True)
                 
-                if variavel == 'Granulometria':
-                    # Filtrar colunas que começam com "Estação"
-                    variable_names = [col for col in dados_granolometria.columns if col.lower().startswith('Estação')]
+                elif variavel == 'Granulometria':
                     
-                    if not variable_names:
-                        st.error("Nenhuma coluna encontrada que comece com 'Estação'.")
-                    else:
-                        # Criar um widget de dropdown para selecionar a variável
-                        selected_variable = st.sidebar.selectbox("Selecione a Variável", variable_names)
-                
-                        if selected_variable in dados_granolometria.columns:
-                            # Criar o gráfico usando Plotly Express
-                            fig = px.bar(
-                                dados_granolometria,
-                                x="Fração",
-                                y=selected_variable,  # Usar a variável selecionada no eixo Y
-                                color="Fração",  # Atribuir cores diferentes para cada 'Fração'
-                                animation_frame="Time" if "Time" in dados_granolometria.columns else None,
-                                labels={"Fração": "Fração granulométrica", "Value": "Concentração (%)"},  # Personalizar rótulos
-                                title="Distribuição Granulométrica"
-                            )
-                
-                            # Personalizar o layout se necessário
-                            fig.update_layout(
-                                xaxis_title="Fração granulométrica",
-                                yaxis_title="Concentração (%)"
-                            )
-                            
-                            # Exibir o gráfico
-                            st.plotly_chart(fig, use_container_width=True)
-                        else:
-                            st.error("A variável selecionada não é válida!")
+                    # Create a list of unique variable names (e.g., 'PM-01', 'PM-02', etc.)
+                    variable_names = [col for col in dados_granolometria.columns if col.startswith('Estação')]
+                    # Create a dropdown widget for selecting the variable
+                    selected_variable = st.sidebar.selectbox("Selecione a Variável", variable_names)
+
+                    # Create the plot using Plotly Express
+                    fig = px.bar(
+                        dados_granolometria,
+                        x="Fração",
+                        y=selected_variable,  # Use the selected variable for the y-axis
+                        color="Fração",  # Assign different colors to each 'Fração'
+                        animation_frame="Time" if "Time" in dados_granolometria.columns else None,
+                        labels={"Fração": "Fração granulométrica", selected_variable: "Value"},  # Customize labels
+                        title="Distribuição Granulométrica")
+
+                    # Customize the layout if needed
+                    fig.update_layout(
+                        xaxis_title="Fração granulométrica",
+                        yaxis_title="Concentração (%)")
+                    # Show the plot
+                    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
     
                 elif variavel == 'Meteorologia':
                    
